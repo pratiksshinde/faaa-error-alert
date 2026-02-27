@@ -1,9 +1,10 @@
 {
   "name": "faaa-error-alert",
-  "displayName": "faaa-error-alert",
+  "displayName": "FAAAAA Error Alert",
   "description": "Screams FAAAAAA!!!  when you create errors.",
   "publisher": "pratikshinde",
-  "version": "0.0.1",
+  "version": "0.0.11",
+  "icon": "icon.ico",
   "engines": {
     "vscode": "^1.109.0"
   },
@@ -13,10 +14,6 @@
   "activationEvents": ["*"],
   "main": "./extension.js",
   "contributes": {
-    "commands": [{
-      "command": "faaa-error-alert.helloWorld",
-      "title": "Hello World"
-    }]
   },
   "scripts": {
     "lint": "eslint .",
@@ -30,5 +27,9 @@
     "eslint": "^9.39.2",
     "@vscode/test-cli": "^0.0.12",
     "@vscode/test-electron": "^2.5.2"
+  },
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/pratiksshinde/faaa-error-alert"
   }
 }
