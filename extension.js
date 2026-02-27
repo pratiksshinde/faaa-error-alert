@@ -44,17 +44,18 @@ const { exec } = require('child_process');
 const os = require('os');
 
 function playSound(context) {
-    const soundFile = path.join(context.extensionPath, 'media', 'error.mp3');
-    const platform = os.platform();
+    const soundFile = path.join(context.extensionPath, 'media', 'error.wav');
 
-    if (platform === 'darwin') {
+    if (process.platform === 'darwin') {
         // macOS
         exec(`afplay "${soundFile}"`);
-    } else if (platform === 'win32') {
-        // Windows (PowerShell required)
-        exec(`powershell -c (New-Object Media.SoundPlayer "${soundFile}").PlaySync();`);
-    } else if (platform === 'linux') {
-        // Linux (requires paplay or aplay installed)
+    } 
+    else if (process.platform === 'win32') {
+        // Windows (WAV only)
+        exec(`powershell -c (New-Object Media.SoundPlayer '${soundFile.replace(/'/g, "''")}').PlaySync();`);
+    } 
+    else if (process.platform === 'linux') {
+        // Linux
         exec(`paplay "${soundFile}" || aplay "${soundFile}"`);
     }
 }
